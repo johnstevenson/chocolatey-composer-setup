@@ -12,3 +12,4 @@ test_script:
   - cd %APPVEYOR_BUILD_FOLDER%
   - refreshenv
   - composer --version --ansi
+  - echo Composer Setup %CHOCO_COMPOSER_VERSION% successfully installed
