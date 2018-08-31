@@ -5,8 +5,8 @@ environment:
   CHOCO_COMPOSER_VERSION: 4.8.0
 
 install:
-  - cinst php -y
-  - cinst composer -y --version %CHOCO_COMPOSER_VERSION%
+  - cinst php -i -y
+  - cinst composer -i -y --version %CHOCO_COMPOSER_VERSION%
 
 test_script:
   - cd %APPVEYOR_BUILD_FOLDER%
