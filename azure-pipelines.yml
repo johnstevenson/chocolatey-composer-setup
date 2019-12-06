@@ -15,13 +15,14 @@ steps:
   displayName: PHP Version
 
 - script: choco install -y php --version 7.4.0
-- script: refreshenv
+#- script: refreshenv
   displayName: 'Install PHP 7.4.0'
 
 - script: choco install -y composer
-- script: refreshenv
+#- script: refreshenv
   displayName: Install composer
 
+- script: refreshenv
 - script: php -v
 - script: composer --version
   displayName: Display versions
