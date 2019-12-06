@@ -5,7 +5,7 @@ environment:
   CHOCO_COMPOSER_VERSION: 4.10.0
 
 install:
-  - cinst php -i -y
+  - cinst php -y --force
   - refreshenv
   #- cinst composer  -y --version %CHOCO_COMPOSER_VERSION%
 
