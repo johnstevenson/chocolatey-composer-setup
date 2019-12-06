@@ -11,10 +11,12 @@ install:
 
 test_script:
   - cd %APPVEYOR_BUILD_FOLDER%
+  - where php
   - php -v
   - echo Testing install
   - cinst composer -i -y --source %APPVEYOR_BUILD_FOLDER%
   - refreshenv
+  - where composer
   - composer --version --ansi
   - echo Testing uninstall
   - choco uninstall -y composer
