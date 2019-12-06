@@ -10,14 +10,18 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
 - script: php -v
   displayName: PHP Version
 
+- script: choco install -y php --version 7.4.0
+- script: refreshenv
+  displayName: 'Install PHP 7.4.0'
+
 - script: choco install -y composer
+- script: refreshenv
   displayName: Install composer
 
+- script: php -v
 - script: composer --version
-  displayName: Composer version
+  displayName: Display versions
