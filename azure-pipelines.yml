@@ -12,16 +12,16 @@ pool:
 steps:
 
 - script: php -v
-  displayName: PHP Version
+  displayName: Initial PHP Version
 
 - script: |
     choco install -y php --version 7.4.0 --no-progress
-    echo ##vso[task.setvariable variable=php]C:\tools\php74
+    echo ##vso[task.setvariable variable=php]C:\tools\php74\php.exe
   displayName: 'Install PHP 7.4.0'
 
 - script: |
     choco install -y composer --no-progress -ia '"/DEV=C:\tools\composer"'
-    echo ##vso[task.setvariable variable=composer]C:\tools\composer
+    echo ##vso[task.setvariable variable=composer]C:\tools\composer\composer.bat
   displayName: Install composer
 
 - script: |
