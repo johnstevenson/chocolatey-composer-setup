@@ -28,7 +28,7 @@ stages:
   - job:
     displayName: Display versions
     steps:
-    - script: echo %Agent.ToolsDirectory%
+    - script: echo $(Agent.ToolsDirectory)
     - script: php -v
     - script: composer --version
   
