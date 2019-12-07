@@ -21,7 +21,7 @@ steps:
 
 - script: |
     choco install -y composer --no-progress -ia '"/DEV=C:\tools\composer"'
-    echo ##vso[task.setvariable variable=composer]C:\tools\composer\composer.bat
+    echo ##vso[task.setvariable variable=composer]C:\tools\php74\php.exe C:\tools\composer\composer.phar
   displayName: Install composer
 
 - script: |
