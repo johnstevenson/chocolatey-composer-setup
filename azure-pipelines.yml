@@ -9,27 +9,22 @@ trigger:
 pool:
   vmImage: 'windows-latest'
 
-stages:
-- stage: Install
-  jobs:
-  - job: 
-    steps:
-    - script: echo $(Agent.ToolsDirectory)
-    - script: php -v
-      displayName: PHP Version
+steps:
 
-    - script: choco install -y php --version 7.4.0 --no-progress
-      displayName: 'Install PHP 7.4.0'
+- script: php -v
+  displayName: PHP Version
 
-    - script: choco install -y composer --no-progress
-      displayName: Install composer
+- bash: |
+    choco install -y php --version 7.4.0 --no-progress
+    echo "##vso[task.setvariable variable=php]$(which php)"
+  displayName: 'Install PHP 7.4.0'
 
-- stage: Report
-  jobs:
-  - job:
-    displayName: Display versions
-    steps:
-    - script: echo $(Agent.ToolsDirectory)
-    - script: php -v
-    - script: composer --version
-  
+- bash: |
+    choco install -y composer --no-progress
+    echo "##vso[task.setvariable variable=composer]$(which composer)"
+  displayName: Install composer
+
+- bash: |
+    $(php) -v
+    $(composer) --version
+  displayName: Display versions
